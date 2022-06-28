@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React CDN</title>
+  <!-- CDN REACT Production -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <!-- CDN BabelJs -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+  <!-- Este DIV es en el que se va a renderizar el contenido de REACT -->
+  <div id="root">
+
+    <script type="text/babel" src="./components/Contador.js"></script>
+    <script type="text/babel" src="./index.js"></script>
+
+  </div>
+
+</body>
+
+</html>
