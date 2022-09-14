@@ -9,8 +9,6 @@
   <!-- CDN REACT Production -->
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <!-- CDN BabelJs -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <link rel="stylesheet" href="style.css" />
 
@@ -18,12 +16,31 @@
 
 <body>
   <!-- Este DIV es en el que se va a renderizar el contenido de REACT -->
-  <div id="root">
+  <div id="root"></div>
 
-    <script type="text/babel" src="./components/Contador.js"></script>
-    <script type="text/babel" src="./index.js"></script>
+  <script>
 
-  </div>
+    // Query selector es para obtener un elmento del DOM
+    // Con esto ya se obtiene una referencia dentro de JS de el div "root"
+    const container = document.querySelector("#root")
+    // Constante que almacena la raiz del proyecto
+    // Este metodo pide como parametro el contenedor del root
+    const root = ReactDOM.createRoot(container)
+
+    // Este metodo va a renderizar l o que yo envie como texto. Esto por proteccion a ataques de inyeccion de scripts
+    root.render(
+      // Este metodo me permite crear elementos en el DOM
+      // tipoElemento, opciones, contenido
+      React.createElement("div", null,
+        React.createElement("h1", null, "React es lo maximo"),
+        React.createElement("h2", null, "React es lo maximo"),
+        React.createElement("h3", null, "React es lo maximo"),
+        React.createElement("h4", null, "React es lo maximo"),
+      )
+    )
+
+
+  </script>
 
 </body>
 
