@@ -13,15 +13,8 @@
   <!-- BABEL JSX -->
   <!-- Permite compilar codigo JS a versiones compatibles -->
   <!-- con cualquier navegador -->
-  <div id="output"></div>
   <!-- Load Babel -->
-  <!-- v6 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <!-- Your custom script here -->
-  <script type="text/babel">
-    const getMessage = () => "Hello World";
-    document.getElementById('output').innerHTML = getMessage();
-  </script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
   <link rel="stylesheet" href="style.css" />
 
@@ -41,15 +34,27 @@
     // Este metodo pide como parametro el contenedor del root
     const root = ReactDOM.createRoot(container)
 
+    // Asi se solian utilizar las clases de JS
+    // Esto ya no se usa pero es posible que me cruce
+    // con algo asi en un codigo que deba revisar
+    class Listado extends React.Component {
+      render() {
+        return (
+          <ol>
+            <li>Hola</li>
+            <li>Elemento</li>
+            <li>Aprendiendo react</li>
+            <li>Usando JSX</li>
+          </ol>
+        );
+      }
+    }
+
     // Render de elementos con Babel
     root.render(
       <div>
-        <ol>
-          <li>Hola</li>
-          <li>Elemento</li>
-          <li>Aprendiendo react</li>
-          <li>Usando JSX</li>
-        </ol>
+        <h1>React CDN</h1>
+        <Listado />
       </div>
     )
 
