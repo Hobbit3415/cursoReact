@@ -10,6 +10,19 @@
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 
+  <!-- BABEL JSX -->
+  <!-- Permite compilar codigo JS a versiones compatibles -->
+  <!-- con cualquier navegador -->
+  <div id="output"></div>
+  <!-- Load Babel -->
+  <!-- v6 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- Your custom script here -->
+  <script type="text/babel">
+    const getMessage = () => "Hello World";
+    document.getElementById('output').innerHTML = getMessage();
+  </script>
+
   <link rel="stylesheet" href="style.css" />
 
 </head>
@@ -18,8 +31,9 @@
   <!-- Este DIV es en el que se va a renderizar el contenido de REACT -->
   <div id="root"></div>
 
-  <script>
-
+  <!-- Debo indicarle al script que puede usar BABEL -->
+  <!-- Para ello le digo que sera de tipo BABEL -->
+  <script type="text/babel">
     // Query selector es para obtener un elmento del DOM
     // Con esto ya se obtiene una referencia dentro de JS de el div "root"
     const container = document.querySelector("#root")
@@ -27,18 +41,17 @@
     // Este metodo pide como parametro el contenedor del root
     const root = ReactDOM.createRoot(container)
 
-    // Este metodo va a renderizar l o que yo envie como texto. Esto por proteccion a ataques de inyeccion de scripts
+    // Render de elementos con Babel
     root.render(
-      // Este metodo me permite crear elementos en el DOM
-      // tipoElemento, opciones, contenido
-      React.createElement("div", null,
-        React.createElement("h1", null, "React es lo maximo"),
-        React.createElement("h2", null, "React es lo maximo"),
-        React.createElement("h3", null, "React es lo maximo"),
-        React.createElement("h4", null, "React es lo maximo"),
-      )
+      <div>
+        <ol>
+          <li>Hola</li>
+          <li>Elemento</li>
+          <li>Aprendiendo react</li>
+          <li>Usando JSX</li>
+        </ol>
+      </div>
     )
-
 
   </script>
 
