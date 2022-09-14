@@ -34,20 +34,16 @@
     // Este metodo pide como parametro el contenedor del root
     const root = ReactDOM.createRoot(container)
 
-    // Asi se solian utilizar las clases de JS
-    // Esto ya no se usa pero es posible que me cruce
-    // con algo asi en un codigo que deba revisar
-    class Listado extends React.Component {
-      render() {
-        return (
-          <ol>
-            <li>Hola</li>
-            <li>Elemento</li>
-            <li>Aprendiendo react</li>
-            <li>Usando JSX</li>
-          </ol>
-        );
-      }
+    // Estandar de creacion de componentes
+    const Listado = () => {
+      return (
+        <ol>
+          <li>Creando functional component</li>
+          <li>Elemento</li>
+          <li>Aprendiendo react</li>
+          <li>Usando JSX</li>
+        </ol>
+      );
     }
 
     // Render de elementos con Babel
