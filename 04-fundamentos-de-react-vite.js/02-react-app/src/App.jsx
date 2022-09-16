@@ -23,11 +23,11 @@ const App = () => {
           className="logo react"
           alt="React logo"
         />
-        <p>
+        <div>
           <button onClick={disminuir}>-</button>
           <h1>{contador}</h1>
           <button onClick={aumentar}>+</button>
-        </p>
+        </div>
       </header>
     </div>
   );
