@@ -12,7 +12,7 @@ const CACHE_ELEMENTS = [
   "./src/App.jsx",
 ];
 // Nombre que tendra el cache
-const CACHE_NAME = "v1_cache_contador_react";
+const CACHE_NAME = "v2_cache_contador_react";
 
 // Primer evento del service worker
 /* El evento isntall es la primera parte del ciclo de
@@ -35,5 +35,38 @@ self.addEventListener("install", (e) => {
         })
         .catch(console.log);
     })
+  );
+});
+
+self.addEventListener("activate", (e) => {
+  const cacheWhitelist = [CACHE_NAME];
+  // Espere a...
+  e.waitUntil(
+    caches
+      .keys()
+      .then((cacheNames) => {
+        // Recibe un array y puede ejecutar varias promesas y resolverlas al mismo tiempo
+        // O puedo lanzar un array de lo que necesite y retornar
+        // una promesa del mismo
+        return Promise.all(
+          cacheNames.map(
+            (cacheName) =>
+              // Si contiene el nombre del cache...
+              // Si es estrictamente igual a -1
+              // Quiere decir que este cache no existe
+              /**
+               * Esta linea lo que hace es corroborar cual es el
+               * cache mas reciente que tiene el SW y elimina
+               * el mas antiguo
+               */
+              cacheWhitelist.indexOf(cacheName) === -1 &&
+              caches.delete(cacheName)
+          )
+        );
+        /**
+         * Tras revisar cual es el cache mas reciente, debo reclamarlo
+         */
+      })
+      .then(() => self.clients.claim())
   );
 });
