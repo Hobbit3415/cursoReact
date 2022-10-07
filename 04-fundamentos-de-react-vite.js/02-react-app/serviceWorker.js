@@ -63,10 +63,32 @@ self.addEventListener("activate", (e) => {
               caches.delete(cacheName)
           )
         );
-        /**
-         * Tras revisar cual es el cache mas reciente, debo reclamarlo
-         */
       })
       .then(() => self.clients.claim())
+    /**
+     * Tras revisar cual es el cache mas reciente, debo reclamarlo
+     */
   );
+});
+
+/**
+ * Este evento se va a disparar cada vez que se abra el sitio
+ *
+ * Busca una version del cache y va a retornar las respuestas
+ * que tenga cacheadas
+ *
+ * En caso de tener una respuesta ya cacheada, hara la peticion
+ * y respondera
+ */
+self.addEventListener("fetch", (e) => {
+  // Respondera cuando
+  e.respondWith(() => {
+    // Que existe dentro de mi cache?
+    /**
+     * Cada vez que obtenga una respuesta voy a preguntar si esa
+     * respuesta existe. Si es asi, voy a retornar la respuesta
+     * De lo contrario, se invoca el metodo fetch de la respuesta
+     */
+    caches.match(e.request).then((res) => (res ? res : fetch(e.request)));
+  });
 });
