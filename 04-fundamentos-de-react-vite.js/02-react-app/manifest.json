@@ -1,0 +1,38 @@
+{
+  "name": "Contador React",
+  "short_name": "Count_R",
+  "description": "Contador app creado en React CDN como una PWA (Progressive Web App)",
+  "background_color": "#333333",
+  "theme_color": "#61dafb",
+  "start_url": "./",
+  "scope": "./",
+  "lang": "es-MX",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "src/assets/images/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "src/assets/images/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "src/assets/images/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "src/assets/images/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

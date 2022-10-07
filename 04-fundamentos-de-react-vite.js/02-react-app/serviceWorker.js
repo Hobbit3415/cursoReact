@@ -10,6 +10,7 @@ const CACHE_ELEMENTS = [
   "https://unpkg.com/@babel/standalone/babel.min.js",
   "./src/App.css",
   "./src/App.jsx",
+  "./src/assets/hamburguer.png",
 ];
 // Nombre que tendra el cache
 const CACHE_NAME = "v2_cache_contador_react";
