@@ -83,13 +83,20 @@ self.addEventListener("activate", (e) => {
  */
 self.addEventListener("fetch", (e) => {
   // Respondera cuando
-  e.respondWith(() => {
+  e.respondWith(
     // Que existe dentro de mi cache?
     /**
      * Cada vez que obtenga una respuesta voy a preguntar si esa
      * respuesta existe. Si es asi, voy a retornar la respuesta
      * De lo contrario, se invoca el metodo fetch de la respuesta
      */
-    caches.match(e.request).then((res) => (res ? res : fetch(e.request)));
-  });
+    caches.match(e.request).then((res) => {
+      // Si existe, retorne la respuesta
+      if (res) {
+        return res;
+      }
+      // Si no, haga fetch
+      return fetch(e.request);
+    })
+  );
 });
