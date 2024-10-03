@@ -4,14 +4,21 @@ import { useState } from "react"
 const Effect = () => {
 
   const [state, setState] = useState(0)
-  
-  useEffect =( () => {
-    window.addEventListener( "mousemove", (e) => {
-      setState(state + 1)
-      console.log("moviendo")
-    })
 
+  const evento = (e) => {
+    console.log("moviendo")
+  }
+
+  useEffect(() => {
+    if (state === "123") {
+      window.addEventListener("mousemove", evento)
+    }
+
+    return () => {
+      window.removeEventListener("mousemove", evento)
+    }
   }, [state])
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -28,9 +35,9 @@ const Effect = () => {
             Search
           </label>
           <input
-            onChange={e => "123" && setState(e.target.value)}
-            type="text"
+            onChange={e => setState(e.target.value)}
             value={state}
+            type="text"
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"

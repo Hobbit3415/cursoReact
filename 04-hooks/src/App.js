@@ -1,11 +1,13 @@
 // import Calculadora from "./components/Calculadora";
 // import State from "./components/State";
-import Effect from "./components/Effect";
+// import Effect from "./components/Effect";
+import LayoutEffect from "./components/LayoutEffect";
 
 const App = () => {
   return (
     <div className="container ">
-      <Effect/>
+      {/* <Effect/> */}
+      <LayoutEffect/>
     </div>
     // <State/>
     // <div>
